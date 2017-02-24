@@ -1,0 +1,96 @@
+/*body{  
+                height: auto;
+                            background: url(../images/bg1.jpg) no-repeat center fixed;
+                                        -webkit-background-size: cover;
+                                                    -moz-background-size: cover;
+                                                                -o-background-size: cover;
+                                                                            background-size: cover;
+                                                                                    }*/
+body{
+    height:800px;
+     background: url("../images/bg1.jpg") no-repeat;
+     filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+        background-size:100% 100%;  
+    background-attachment: fixed;
+   }
+		.ztree{
+			/*margin-top: 200px;*/
+			padding-left: 65px;
+		}
+		.ztree li{
+			font-size: 14px;
+			font-family: SimHei;
+			line-height: 21px;
+			white-space: normal;
+			text-align: left;
+			text-indent:-50px;
+		}
+		.ztree li span{
+			font-size: 14px;
+			font-family: SimHei;
+			line-height: 21px;
+		}
+		.ztree li a{
+			display: inline;
+			font-size: 14px;
+			font-family: SimHei;
+			line-height: 21px;
+			
+		}
+		.ztree *{
+			font-size: 14px;
+			font-family: SimHei;
+			line-height: 21px;
+		}
+		.ztree li a.curSelectedNode{
+			    padding-top: 0px;
+			    background-color: rgba(229, 229, 229, 0);
+			    color: black;
+			    height: 21px;
+			    opacity: 0.8;
+			    text-decoration:none;
+		}
+		.ztree li span.button.switch.level0 {display:none;}
+		a{
+			text-decoration:none;
+		}
+		#opinionTree_1_switch{
+			color: rgb(255,221,92);
+		}
+		#opinionTree_1 a{
+			color: rgb(255,221,92);
+			text-shadow：2,2,3px,#070002;
+		}
+		#opinionTree_7 a{
+			color: rgb(255,221,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_13 a{
+			color: rgb(255,221,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_18 a{
+			color: rgb(243,203,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_28 a{
+			color: rgb(243,203,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_36 a{
+			color: rgb(243,203,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_41 a{
+			color: rgb(230,185,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_44 a{
+			color: rgb(230,185,92);
+			text-shadow：2,2,3px,#070002
+		}
+		#opinionTree_48 a{
+			color: rgb(230,185,92);
+			text-shadow：2,2,3px,#070002
+		}
