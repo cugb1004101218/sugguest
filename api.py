@@ -61,6 +61,34 @@ def global_fuzzy_search(query):
     pattern = re.compile(".*" + query + ".*")
     return suggestion_db_api.get_all({"$or": [{"content": pattern}, {"name": pattern}, {"title": pattern}]})
 
+def get_problem(father, index):
+    problem = {"problem":{"problem": ""}}
+    mongo_query = {}
+    if father.isdigit():
+        mongo_query["father"] = int(father)
+        mongo_query["level"] = 1
+    if index.isdigit():
+        mongo_query["index"] = int(index)
+        mongo_query["level"] = 2
+    problem = db_api.get_one(mongo_query)
+    return gen_real_problem(problem)
+
+def gen_real_problem(problem):
+    if problem["level"] == 1:
+        index_str = ""
+        father = problem["father"]
+        if father == 1: index_str = "一"
+        if father == 2: index_str = "二"
+        if father== 3: index_str = "三"
+        if father == 4: index_str = "四"
+        if father == 5: index_str = "五"
+        if father == 6: index_str = "六"
+        if father == 7: index_str = "七"
+        if father == 8: index_str = "八"
+        if father == 9: index_str = "九"
+        problem["problem"] = "关注之" + index_str + "：" + problem["problem"]
+    return problem
+
 if __name__ == '__main__':
     #problem = {"title":"服务改革和经济社会发展大局"}
     #db_api.add(problem)
