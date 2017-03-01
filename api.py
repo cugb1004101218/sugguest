@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
 import pymongo
+import redis
 import sys
 import re
 import configure
 reload(sys) # Python2.5 初始化后会删除 sys.setdefaultencoding 这个方法，我们需要重新载入
 sys.setdefaultencoding('utf-8')
+
+class RedisAPI(object):
+    def __init__(self, redis_ip, redis_port, redis_db):
+        self.conn = redis.Redis(host=redis_ip, port=redis_port, db=redis_db)
+
+    def set(self, k, v, ttl=None):
+        ret = self.conn.set(k, v)
+        if ttl:
+            ret &= self.conn.expire(k, ttl)
+        return ret
+
+    def get(self, k):
+        return self.conn.get(k)
+
+    def delete(self, k):
+        return self.conn.delete(k)
+
+redis_api = RedisAPI(configure.redis_ip, configure.redis_port, configure.redis_db)
 
 class DBAPI(object):
     def __init__(self, db_ip, db_port, db_name, table_name):
@@ -87,6 +106,8 @@ def gen_real_problem(problem):
         if father == 8: index_str = "八"
         if father == 9: index_str = "九"
         problem["problem"] = "关注之" + index_str + "：" + problem["problem"]
+    elif problem["level"] == 2:
+        problem["problem"] = str(problem["index"]) + ". "  + problem["problem"]
     return problem
 
 if __name__ == '__main__':

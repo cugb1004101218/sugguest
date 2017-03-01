@@ -7,6 +7,7 @@ import pymongo
 import json
 import sys
 import api
+import configure
 
 from tornado.options import define, options
 define("port", default=2000, help="run on the given port", type=int)
@@ -20,21 +21,37 @@ class BaseHandler(tornado.web.RequestHandler):
         self.set_header('Access-Control-Allow-Headers', '*')
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
 
-    def get_from_cache(self):
+    def gen_cache_key(self):
         return None
+
+    def get_from_cache(self, key):
+        if not key:
+            return None
+        return api.redis_api.get(key)
 
     def get_from_db(self):
         return None
 
     def get(self):
         # 先从 cache 中取
-        ret = self.get_from_cache()
-        if not ret:
+        key = self.gen_cache_key();
+        result = self.get_from_cache(key)
+        if not result:
+            print "get from db"
             ret = self.get_from_db()
-        self.write(json.dumps(ret))
+            result = json.dumps(ret)
+            api.redis_api.set(key, result, 3600)
+        self.write(result)
         self.finish()
 
 class ProblemHandler(BaseHandler):
+    def gen_cache_key(self):
+        father = self.get_argument("father", "")
+        index = self.get_argument("index", "")
+        query = self.get_argument("query", "")
+        key = "PROBLEM_HANDLER_" + father + "_" + index + "_" + query
+        return key
+
     def get_suggest_list(self, father, index, query):
         mongo_query = {}
         if father.isdigit():
@@ -64,17 +81,22 @@ class ProblemHandler(BaseHandler):
         problem = self.get_problem(father, index, query)
         return {"suggest_list": suggestion_list, "problem": problem}
 
-class IndexHandler(tornado.web.RequestHandler):
+class IndexHandler(BaseHandler):
+    def gen_cache_key(self):
+        return "INDEX_HANDLER_GET_TREE"
     def gen_tree(self):
         problem_list = []
-        all_node = api.db_api.get_all({"level": 1})
+        all_node = api.db_api.get_all({"level": 1}).sort("index")
         for node in all_node:
             node_info = {}
             index = node["index"]
-            child_node = api.db_api.get_all({"level": 2, "father": index})
+            child_node = api.db_api.get_all({"level": 2, "father": index}).sort("index")
             child_list = []
             for child in child_node:
-                child_list.append({"name": str(child["index"]) + ". " + child["problem"], "url":"http://115.28.145.36:7878?father=" + str(index) + "&index=" + str(child["index"])})
+                child_list.append({
+                    "name": str(child["index"]) + ". " + child["problem"],
+                    "url": configure.suggestion_list_page_url + "?father=" + str(index) + "&index=" + str(child["index"])
+                })
 
             node_info["name"] = api.gen_real_problem(node)["problem"]
             node_info["children"] = child_list

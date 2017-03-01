@@ -1,96 +1,127 @@
-/*body{  
-                height: auto;
-                            background: url(../images/bg1.jpg) no-repeat center fixed;
-                                        -webkit-background-size: cover;
-                                                    -moz-background-size: cover;
-                                                                -o-background-size: cover;
-                                                                            background-size: cover;
-                                                                                    }*/
-body{
-    height:800px;
-     background: url("../images/bg1.jpg") no-repeat;
-     filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
-    -moz-background-size:100% 100%;  
-        background-size:100% 100%;  
-    background-attachment: fixed;
-   }
-		.ztree{
-			/*margin-top: 200px;*/
-			padding-left: 65px;
+
+		/*body{  
+		  	height: auto;
+			background: url(../images/bg.png) no-repeat center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}*/
+	/*body{              
+		background: url("../images/bg2.png") no-repeat;
+		filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+		-moz-background-size:100% 100%;
+		background-size:100% 100%;
+		background-attachment: fixed; 
+    }*/
+    body:before {
+			content: ' ';
+			position: fixed;
+			z-index: -1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: url(../images/bg2.PNG) center 0 no-repeat;
+			background-size: cover;
 		}
-		.ztree li{
-			font-size: 14px;
-			font-family: SimHei;
-			line-height: 21px;
-			white-space: normal;
-			text-align: left;
-			text-indent:-50px;
+
+	.form-input{
+		float: left;
+		width: auto;
+		height: 34px;
+		display: inline;
+		border: 4px solid #ab3831;;
+		border-top-left-radius:8px;
+		border-top-right-radius:0px;
+		border-bottom-right-radius:0px;
+		border-bottom-left-radius:8px;
+	}
+	.divSearch{
+		border-top-right-radius:8px;
+		border-bottom-right-radius:8px;
+		display: inline;
+		float: left;
+		height: 34px;
+		width: 40px;
+		background-color: #ab3831;
+	}
+	.ztree{
+        padding-left: 8%;
+		/*font-size: medium;*/
+		font-family: SimHei;
+		color:#0f0f0f;
+	}
+/*	@media screen and (max-height: 500px ) and (min-height: 10px){
+		.divTree {
+			margin-top: 100px;
+		    height: 270px;
+		    overflow: auto;
 		}
-		.ztree li span{
-			font-size: 14px;
-			font-family: SimHei;
-			line-height: 21px;
+	}
+	@media screen and (max-height: 600px ) and (min-height: 500px){
+		.divTree {
+			margin-top: 105px;
+		    height: 270px;
+		    overflow: auto;
 		}
-		.ztree li a{
-			display: inline;
-			font-size: 14px;
-			font-family: SimHei;
-			line-height: 21px;
-			
+	}
+	@media screen and (max-height: 650px ) and (min-height: 601px){
+		.divTree {
+			margin-top: 110px;
+		    height: 280px;
+		    overflow: auto;
 		}
-		.ztree *{
-			font-size: 14px;
-			font-family: SimHei;
-			line-height: 21px;
+	}
+	@media screen and (max-height: 750px) and (min-height: 651px){
+		.divTree {
+			margin-top: 130px;
+		    height: 350px;
+		    overflow: auto;
 		}
-		.ztree li a.curSelectedNode{
-			    padding-top: 0px;
-			    background-color: rgba(229, 229, 229, 0);
-			    color: black;
-			    height: 21px;
-			    opacity: 0.8;
-			    text-decoration:none;
-		}
-		.ztree li span.button.switch.level0 {display:none;}
-		a{
-			text-decoration:none;
-		}
-		#opinionTree_1_switch{
-			color: rgb(255,221,92);
-		}
-		#opinionTree_1 a{
-			color: rgb(255,221,92);
-			text-shadow：2,2,3px,#070002;
-		}
-		#opinionTree_7 a{
-			color: rgb(255,221,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_13 a{
-			color: rgb(255,221,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_18 a{
-			color: rgb(243,203,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_28 a{
-			color: rgb(243,203,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_36 a{
-			color: rgb(243,203,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_41 a{
-			color: rgb(230,185,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_44 a{
-			color: rgb(230,185,92);
-			text-shadow：2,2,3px,#070002
-		}
-		#opinionTree_48 a{
-			color: rgb(230,185,92);
-			text-shadow：2,2,3px,#070002
-		}
+	}*/
+@media screen and (max-width: 350px){
+    .node_name {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 390px;){
+    .node_name {
+        font-size: 16px;
+    }
+    .ztree li {
+        line-height: 24px;
+    }
+}
+@media screen and (min-width: 391px){
+    .node_name {
+        font-size: medium;
+    }
+    .ztree li {
+        line-height: 28px;
+    }
+}
+    .ztree li{                
+		white-space:normal;
+	}
+	.ztree li a{
+		display: inline;
+		font-weight:normal;
+		text-shadow: 0.1px 0.1px #ab3831;
+	}
+	.ztree li .level0{
+		font-weight:bold;
+	}
+	a{
+		text-decoration: none;
+	}
+	.ztree li a.curSelectedNode{
+		background-color: rgba(229, 229, 229, 0);
+		text-decoration:none;
+	}
+	.ztree li a:hover {
+	    text-decoration: none;
+	}
+	.ztree li span.button.switch.level0 {
+		display:none;
+	}

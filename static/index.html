@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1，user-scalable=no">
     <title></title>
-    <link rel="stylesheet" href="../css/metroStyle/metroStyle.css" type="text/css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/tree.css" type="text/css">
-    <style type="text/css">
-.divTree{
-   margin-top: 30%;
-   margin-bottom: 30%;
-   width: 350px;
-   height: 40%;
-   overflow: auto;
-  }
-  @media screen and (max-width: 640px){
-                .divTree {
-                                    float: none;
-                                                    text-align: center;
-                                                                }
-                                                                        }
-    </style>
+	<link rel="stylesheet" href="../css/metroStyle/metroStyle.css" type="text/css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="../css/tree.css" type="text/css">
+	<style type="text/css">
+		
+	</style>
 </head>
 <body>
-
-
-    <!-- 目录树 -->
-    <div class="container">
+<img src="../images/bg1.PNG" width="100%">
+<!-- 目录树 -->
+<div class="container-fluid">
     <div class="divTree">
         <ul id="opinionTree" class="ztree" style=""></ul>
-        <!-- <input type="text" name="" class="form-control" placeholder="">-->
-  
     </div>
-    <!-- dataTable -->
-
-
+    <div id="search-input" style="display:none;margin-top: 10px;">
+        <div style="width: 250px;margin: 0 auto;">
+            <input type="text" name="" class="form-input" placeholder="输入姓名或关键字搜索">
+            <div class="divSearch"><div style="width: 25px;height: 25px;margin-top: 3px;margin-left: 5px;"><img src="../images/search2.png" width="100%"></div></div>
+        </div>
+    </div>
+</div>
+<img src="../images/bg3.PNG" width="100%" style="margin-top: 20px">
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.ztree.all.min.js"></script>
-    <script type="text/javascript" src="../js/tree.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.ztree.all.min.js"></script>
+	<script type="text/javascript" src="../js/tree.js"></script>
 </body>
 </html>
