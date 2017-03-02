@@ -72,7 +72,7 @@ class ProblemHandler(BaseHandler):
         if len(query) == 0:  # 某个问题
             problem = api.get_problem(father, index)
         else:
-            problem = {"problem":{"problem": query}}
+            problem = {"problem": query}
         return problem
 
     def get_from_db(self):
