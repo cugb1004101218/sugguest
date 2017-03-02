@@ -14,7 +14,7 @@
 	        ];
     	$.ajax({
 			type : 'get',
-			url : 'http://115.28.145.36:2000/problem'+window.location.search,
+			url : 'http://table.jcrb.com:8000/problem'+window.location.search,
 			dataType : 'json',
 			// data : {father:father,index:index},
 			error : function() {

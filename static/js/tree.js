@@ -22,7 +22,7 @@
 	    };	    
 	    $.ajax({
 			type : 'get',
-			url : 'http://115.28.145.36:2000/index',
+			url : 'http://table.jcrb.com:8000/index',
 			dataType : 'json',
 			// data : data,
 			error : function() {
@@ -63,5 +63,5 @@
 
   $('.divSearch').click(function(){
       console.log(this);
-      window.location.href = 'http://115.28.145.36:7878?query=' + $('.form-input').val();
+      window.location.href = 'http://table.jcrb.com/table.html?query=' + $('.form-input').val();
   })
