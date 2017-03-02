@@ -71,6 +71,8 @@ class ProblemHandler(BaseHandler):
         problem = {"problem":{"problem": ""}}
         if len(query) == 0:  # 某个问题
             problem = api.get_problem(father, index)
+        else:
+            problem = {"problem":{"problem": query}}
         return problem
 
     def get_from_db(self):
