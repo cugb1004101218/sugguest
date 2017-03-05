@@ -9,7 +9,7 @@
     	var columns = [
 	            { 
 	            	title: "姓名",
-	            	width:'22.5%',
+	            	width:'24%',
 	            	data: '[]',
 	           		render:function ( data, type, full, meta ) {
 	            		var text = data[0] + '<br>' +data[1] ;
@@ -40,7 +40,7 @@
 				var titleText = data.problem.problem;
 				$('title').html(titleText);
 				if(titleText.indexOf("（") != -1){
-					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+titleText.substring(titleText.indexOf("（"));
+					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br>"+titleText.substring(titleText.indexOf("（"));
 				}
 				$('.container-fluid').prepend('<h4 align="center">'+titleText+'</h4>');
 			}
