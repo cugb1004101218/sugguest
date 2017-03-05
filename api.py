@@ -78,7 +78,7 @@ suggestion_db_api = DBAPI(configure.db_ip,
 
 def global_fuzzy_search(query):
     pattern = re.compile(".*" + query + ".*")
-    return suggestion_db_api.get_all({"$or": [{"content": pattern}, {"name": pattern}, {"title": pattern}]})
+    return suggestion_db_api.get_all({"$or": [{"team": pattern}, {"content": pattern}, {"name": pattern}, {"title": pattern}]})
 
 def get_problem(father, index):
     problem = {"problem":{"problem": ""}}

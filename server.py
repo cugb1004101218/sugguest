@@ -60,9 +60,9 @@ class ProblemHandler(BaseHandler):
             mongo_query["index"] = int(index)
         ret = []
         if len(query) > 0:  # 全局模糊搜索
-            suggestion_list = api.global_fuzzy_search(query)
+            suggestion_list = api.global_fuzzy_search(query).sort("sid")
         else:  # 某个问题下的建议
-            suggestion_list = api.suggestion_db_api.get_all(mongo_query)
+            suggestion_list = api.suggestion_db_api.get_all(mongo_query).sort("sid")
         for suggestion in suggestion_list:
             ret.append([suggestion["name"],suggestion["title"], suggestion["content"]])
         return ret
