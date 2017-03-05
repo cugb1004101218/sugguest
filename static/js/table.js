@@ -42,7 +42,7 @@
 				if(titleText.indexOf("（") != -1){
 					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+titleText.substring(titleText.indexOf("（"));
 				}
-				$('.container-fluid').prepend('<h1 align="center">'+titleText+'</h1>');
+				$('.container-fluid').prepend('<h4 align="center">'+titleText+'</h4>');
 			}
 
 			var table = $('#opinionTable').DataTable({
