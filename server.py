@@ -64,7 +64,7 @@ class ProblemHandler(BaseHandler):
         else:  # 某个问题下的建议
             suggestion_list = api.suggestion_db_api.get_all(mongo_query).sort("sid")
         for suggestion in suggestion_list:
-            ret.append([suggestion["name"],suggestion["title"], suggestion["content"]])
+            ret.append([suggestion["name"], suggestion["team"], suggestion["title"], suggestion["content"]])
         return ret
 
     def get_problem(self, father, index, query):

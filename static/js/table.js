@@ -8,6 +8,7 @@
 
     	var columns = [
 	            { title: "姓名",width:'22.3%' },
+	            { title: "代表团",width:'22.3%'},
 	            { title: "职务",width:'22.3%'},
 	            { title: "意见建议内容" },
 	            
