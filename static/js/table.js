@@ -38,11 +38,11 @@
 		success : function(data, status, xhr) {
 			if (typeof data.problem.problem == 'string') {
 				var titleText = data.problem.problem;
+				$('title').html(titleText);
 				if(titleText.indexOf("（") != -1){
 					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+titleText.substring(titleText.indexOf("（"));
 				}
 				$('.container-fluid').prepend('<h1 align="center">'+titleText+'</h1>');
-				$('title').html(titleText);
 			}
 
 			var table = $('#opinionTable').DataTable({
