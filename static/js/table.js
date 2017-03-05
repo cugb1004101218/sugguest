@@ -7,10 +7,10 @@
     function opinionTable() {
 
     	var columns = [
-	            { title: "姓名",width:'22.3%' },
-	            { title: "代表团/界别",width:'22.3%'},
+	            { title: "姓名",width:'18.3%' },
+	            { title: "代表团/界别",width:'25%'},
 	            { title: "职务",width:'22.3%'},
-	            { title: "意见建议内容" },
+	            { title: "意见建议内容",width:"40%"},
 	            
 	        ];
     	$.ajax({
