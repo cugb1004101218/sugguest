@@ -9,7 +9,7 @@
     	var columns = [
 	            { 
 	            	title: "姓名",
-	            	width:'28%',
+	            	width:'22.5%',
 	            	data: '[]',
 	           		render:function ( data, type, full, meta ) {
 	            		var text = data[0] + '<br>' +data[1] ;
