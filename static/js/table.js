@@ -40,7 +40,7 @@
 				var titleText = data.problem.problem;
 				$('title').html(titleText);
 				if(titleText.indexOf("（") != -1){
-					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br>"+titleText.substring(titleText.indexOf("（"));
+					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br><span class = 'h-smaller'>"+titleText.substring(titleText.indexOf("（"))+"</span>";
 				}
 				$('.container-fluid').prepend('<h4 align="center">'+titleText+'</h4>');
 			}
