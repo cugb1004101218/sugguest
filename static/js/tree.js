@@ -1,6 +1,7 @@
 
    $(document).ready(function(){
       opinionTree();
+	   $('title').html('1267名代表委员都跟最高检说了啥？');
    });
 
    function opinionTree() {
