@@ -36,14 +36,33 @@
 
 		},
 		success : function(data, status, xhr) {
+			
+			var params = parseQuery(window.location.search.substring(1));
+
 			if (typeof data.problem.problem == 'string') {
+				var titleText = data.problem.problem;
+				if(params.hasOwnProperty('index')){
+					$('title').html(titleText);
+				} else if(params.hasOwnProperty('query')){
+					$('title').html(params.query + ' 代表/委员向最高检建了什么言?');
+				} else {
+
+					$('title').html('1267名代表委员建言检察工作' + numStrMap[params.father]);
+				}
+				if(titleText.indexOf("（") != -1){
+					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br><span class = 'h-smaller'>"+titleText.substring(titleText.indexOf("（"))+"</span>";
+				}
+				$('.container-fluid').prepend('<h4 align="center">'+titleText+'</h4>');
+			}
+			
+			/*if (typeof data.problem.problem == 'string') {
 				var titleText = data.problem.problem;
 				$('title').html(titleText);
 				if(titleText.indexOf("（") != -1){
 					titleText = titleText.substring(0,titleText.indexOf("（"))+"<br><span class = 'h-smaller'>"+titleText.substring(titleText.indexOf("（"))+"</span>";
 				}
 				$('.container-fluid').prepend('<h4 align="center">'+titleText+'</h4>');
-			}
+			}*/
 
 			var table = $('#opinionTable').DataTable({
 				ordering: false,
@@ -63,4 +82,15 @@
 		}
 	});
     }
+
+    var parseQuery = function(query){
+        var reg = /([^=&\s]+)[=\s]*([^=&\s]*)/g;
+        var obj = {};
+        while(reg.exec(query)){
+	    obj[RegExp.$1] = RegExp.$2;
+        }
+        return obj;
+    }
+
+    var numStrMap = {1:'(一)',2:'(二)',3:'(三)',4:'(四)',5:'(五)',6:'(六)',7:'(七)',8:'(八)',9:'(九)',10:'(十)',11:'(十一)',12:'(十二)'};
 	   
