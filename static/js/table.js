@@ -44,7 +44,7 @@
 				if(params.hasOwnProperty('index')){
 					$('title').html(titleText);
 				} else if(params.hasOwnProperty('query')){
-					$('title').html(params.query + ' 代表/委员向最高检建了什么言?');
+					$('title').html(decodeURI(params.query) + ' 代表/委员向最高检建了什么言?');
 				} else {
 
 					$('title').html('1267名代表委员建言检察工作' + numStrMap[params.father]);
